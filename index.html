@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        background-color: #F7C9C9;
+        color: #202020;
+        line-height: 1.5;
+      }
+      h1 {
+        font-size: 3em;
+        margin-top: 50px;
+        text-shadow: 2px 2px #D16363;
+        letter-spacing: 2px;
+      }
+      p {
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+      .egg {
+        position: absolute;
+        top: 100px;
+        right: -200px;
+        animation: egg 3s linear infinite;
+      }
+      @keyframes egg {
+        0% {
+          right: -200px;
+        }
+        100% {
+          right: calc(50% - 100px);
+        }
+      }
+      .chicken {
+        position: absolute;
+        top: 200px;
+        right: -200px;
+        animation: chicken 4s ease-in-out infinite;
+      }
+      @keyframes chicken {
+        0% {
+          right: -200px;
+        }
+        100% {
+          right: calc(50% - 100px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML content -->
+    <h1>Hello <span style="color: #D16363;">world</span>!</h1>
+    <p>Welcome to my colorful web page.</p>
+    <img src="https://thumbs.dreamstime.com/z/easter-egg-17787283.jpg" alt="Easter egg" class="egg" width="200" height="200">
+    <img src="https://previews.123rf.com/images/tigatelu/tigatelu1304/tigatelu130400082/19119563-cute-chicken-cartoon-with-easter-egg.jpg" alt="Easter chicken" class="chicken" width="200" height="200">
+  </body>
+</html>
