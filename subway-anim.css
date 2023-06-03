@@ -1,0 +1,25 @@
+@keyframes move-out {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes move-in {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.moving-out {
+    animation: move-out 2s forwards;
+}
+
+.moving-in {
+    animation: move-in 2s forwards;
+}
