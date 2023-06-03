@@ -2,25 +2,20 @@
 <html>
 <head>
     <link rel="stylesheet" href="subway.css">
+    <script src="subway.js"></script>
 </head>
 <body>
-<button onclick="toggleDoors()">Toggle Doors</button>
+
 <div id="subway-container">
     <div id="subway" class="subway">
-        <div class="door left"></div>
-        <div class="door right"></div>
+        <div class="door left">
+            <div class="subway-button" id="left-button"></div>
+        </div>
+        <div class="door right">
+            <div class="subway-button" id="right-button"></div>
+        </div>
     </div>
 </div>
-<script>
-    var subway = document.getElementById('subway');
 
-    function toggleDoors() {
-        if (subway.classList.contains('open')) {
-            subway.classList.remove('open');
-        } else {
-            subway.classList.add('open');
-        }
-    }
-</script>
 </body>
 </html>
