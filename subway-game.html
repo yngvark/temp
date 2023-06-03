@@ -1,91 +1,26 @@
 <!DOCTYPE html>
-<!--
-Paste HTML for instance here: https://html-css-js.com/
-
-Prompt:
-Create a subway simulator using HTML and CSS. It should be possible to open and close doors.
-
--->
-<!DOCTYPE html>
 <html>
 <head>
-    <style>
-        .subway {
-            width: 400px;
-            height: 200px;
-            margin: 50px;
-            position: relative;
-            background-color: #333;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-        .door {
-            position: absolute;
-            width: 49%;
-            height: 90%;
-            background-color: #999;
-            transition: all 2s;
-            top: 5%;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-        }
-        .door.left {
-            left: 0;
-            border-radius: 5px 0 0 5px;
-        }
-        .door.right {
-            right: 0;
-            border-radius: 0 5px 5px 0;
-        }
-        .open .door.left {
-            left: -50%;
-        }
-        .open .door.right {
-            right: -50%;
-        }
-        .door-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: red;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="subway.css">
 </head>
 <body>
-<div id="subway" class="subway">
-    <div class="door left">
-        <button class="door-button" onclick="toggleDoors(event)">Open/Close</button>
-    </div>
-    <div class="door right">
-        <button class="door-button" onclick="toggleDoors(event)">Open/Close</button>
+<button onclick="toggleDoors()">Toggle Doors</button>
+<div id="subway-container">
+    <div id="subway" class="subway">
+        <div class="door left"></div>
+        <div class="door right"></div>
     </div>
 </div>
 <script>
     var subway = document.getElementById('subway');
 
-    function toggleDoors(e) {
-        e.stopPropagation(); // To prevent click event bubbling up to the parent
+    function toggleDoors() {
         if (subway.classList.contains('open')) {
             subway.classList.remove('open');
         } else {
             subway.classList.add('open');
         }
     }
-
-    document.body.onkeydown = function(e) {
-        if (e.keyCode == 32) { // 32 is the keycode for spacebar
-            toggleDoors();
-        }
-    };
 </script>
 </body>
 </html>
