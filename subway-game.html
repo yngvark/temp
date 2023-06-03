@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Paste HTML for instance here: https://html-css-js.com/
 
 Prompt:
 Create a subway simulator using HTML and CSS. It should be possible to open and close doors.
 
 -->
+<!DOCTYPE html>
 <html>
 <head>
     <style>
@@ -41,24 +42,50 @@ Create a subway simulator using HTML and CSS. It should be possible to open and 
         .open .door.right {
             right: -50%;
         }
+        .door-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <button onclick="toggleDoors()">Toggle Doors</button>
-    <div id="subway" class="subway">
-        <div class="door left"></div>
-        <div class="door right"></div>
+<div id="subway" class="subway">
+    <div class="door left">
+        <button class="door-button" onclick="toggleDoors(event)">Open/Close</button>
     </div>
-    <script>
-        var subway = document.getElementById('subway');
-        
-        function toggleDoors() {
-            if (subway.classList.contains('open')) {
-                subway.classList.remove('open');
-            } else {
-                subway.classList.add('open');
-            }
+    <div class="door right">
+        <button class="door-button" onclick="toggleDoors(event)">Open/Close</button>
+    </div>
+</div>
+<script>
+    var subway = document.getElementById('subway');
+
+    function toggleDoors(e) {
+        e.stopPropagation(); // To prevent click event bubbling up to the parent
+        if (subway.classList.contains('open')) {
+            subway.classList.remove('open');
+        } else {
+            subway.classList.add('open');
         }
-    </script>
+    }
+
+    document.body.onkeydown = function(e) {
+        if (e.keyCode == 32) { // 32 is the keycode for spacebar
+            toggleDoors();
+        }
+    };
+</script>
 </body>
 </html>
