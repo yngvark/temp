@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const doorSoundOpen = new Audio('depart.mp3');
+
     document.addEventListener('keydown', function (event) {
         if (event.code == 'ArrowRight') {
+            doorSoundOpen.play()
             var subwayCar = document.getElementById('subway-car');
             subwayCar.classList.add('moving-out');
 
